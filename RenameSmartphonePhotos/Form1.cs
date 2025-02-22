@@ -39,6 +39,27 @@ namespace RenameSmartphonePhotos
     {
         //===================================================================================================
         /// <summary>
+        /// File name with prefix, e.g. Screenshot20010101_124951.jpg
+        /// </summary>
+        static System.Text.RegularExpressions.Regex s_oRegex1 =
+            new System.Text.RegularExpressions.Regex(@"(.*)(20\d\d)(\d\d)(\d\d)[\s_-](.*)");
+        //===================================================================================================
+        /// <summary>
+        /// File name already in target format, e.g 2001-01-01 124951.jpg
+        /// </summary>
+        static System.Text.RegularExpressions.Regex s_oRegex2 =
+            new System.Text.RegularExpressions.Regex(@"\d\d\d\d-\d\d-\d\d\D(.*)");
+
+        //===================================================================================================
+        /// <summary>
+        /// File name with all data concatenadted, e.g. 20010101124951.jpg
+        /// </summary>
+        System.Text.RegularExpressions.Regex s_oRegex3 =
+            new System.Text.RegularExpressions.Regex(@"^(20\d\d)(\d\d)(\d\d)(\d\d\d\d\d\d)(\s?\(\d+\))?[\.](.*)");
+
+
+        //===================================================================================================
+        /// <summary>
         /// Constructs a new form
         /// </summary>
         //===================================================================================================
@@ -78,13 +99,6 @@ namespace RenameSmartphonePhotos
             EventArgs oEventArgs
             )
         {
-            System.Text.RegularExpressions.Regex oRegex1 =
-                new System.Text.RegularExpressions.Regex(@"(.*)(20\d\d)(\d\d)(\d\d)[\s_-](.*)");
-            System.Text.RegularExpressions.Regex oRegex2 = 
-                new System.Text.RegularExpressions.Regex(@"\d\d\d\d-\d\d-\d\d\D(.*)");
-            System.Text.RegularExpressions.Regex oRegex3 =
-                new System.Text.RegularExpressions.Regex(@"^(20\d\d)(\d\d)(\d\d)(\d\d\d\d\d\d)(\s?\(\d+\))?[\.](.*)");
-
             try
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(m_tbxFolder.Text);
@@ -96,10 +110,10 @@ namespace RenameSmartphonePhotos
                         if (fi.Name.ToLower().Contains(".modd") || fi.Name.ToUpper().Contains("THUMBS.DB"))
                             continue;
 
-                        if (oRegex1.IsMatch(fi.Name))
+                        if (s_oRegex1.IsMatch(fi.Name))
                         {
                             //string strNewName = System.IO.Path.Combine(di.FullName, regex.Replace(fi.Name, "$2-$3-$4 $1$5"));
-                            string strNewName = System.IO.Path.Combine(di.FullName, oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
+                            string strNewName = System.IO.Path.Combine(di.FullName, s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
 
                             System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
                             string newModd = strNewName + ".modd";
@@ -135,10 +149,10 @@ namespace RenameSmartphonePhotos
                         }
                         else
                         {
-                            if (oRegex3.IsMatch(fi.Name))
+                            if (s_oRegex3.IsMatch(fi.Name))
                             {
                                 string strNewName = System.IO.Path.Combine(
-                                    di.FullName, oRegex3.Replace(fi.Name, "$1-$2-$3 $4$5.$6"));
+                                    di.FullName, s_oRegex3.Replace(fi.Name, "$1-$2-$3 $4$5.$6"));
                                 //string strNewName = System.IO.Path.Combine(
                                 //    di.FullName, regex3.Replace(fi.Name, "$2-$3-$4 $5.$6"));
 
@@ -179,7 +193,7 @@ namespace RenameSmartphonePhotos
                             }
                             else
                             {
-                                if (!oRegex2.IsMatch(fi.Name))
+                                if (!s_oRegex2.IsMatch(fi.Name))
                                 {
                                     System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex(":");
                                     string strNewName = null;
