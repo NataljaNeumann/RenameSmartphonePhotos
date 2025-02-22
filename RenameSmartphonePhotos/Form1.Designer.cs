@@ -60,52 +60,33 @@ namespace RenameSmartphonePhotos
             // 
             // m_tbxFolder
             // 
-            this.m_tbxFolder.AccessibleDescription = null;
-            this.m_tbxFolder.AccessibleName = null;
             resources.ApplyResources(this.m_tbxFolder, "m_tbxFolder");
             this.m_tbxFolder.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.m_tbxFolder.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.m_tbxFolder.BackgroundImage = null;
-            this.m_tbxFolder.Font = null;
             this.m_tbxFolder.Name = "m_tbxFolder";
             this.m_tbxFolder.TextChanged += new System.EventHandler(this.OnFolderTextChanged);
             // 
             // mbnChooseFolder
             // 
-            this.mbnChooseFolder.AccessibleDescription = null;
-            this.mbnChooseFolder.AccessibleName = null;
             resources.ApplyResources(this.mbnChooseFolder, "mbnChooseFolder");
-            this.mbnChooseFolder.BackgroundImage = null;
-            this.mbnChooseFolder.Font = null;
             this.mbnChooseFolder.Name = "mbnChooseFolder";
             this.mbnChooseFolder.UseVisualStyleBackColor = true;
             this.mbnChooseFolder.Click += new System.EventHandler(this.OnChooseFolderClick);
             // 
             // m_lblFolder
             // 
-            this.m_lblFolder.AccessibleDescription = null;
-            this.m_lblFolder.AccessibleName = null;
             resources.ApplyResources(this.m_lblFolder, "m_lblFolder");
             this.m_lblFolder.Name = "m_lblFolder";
             // 
             // m_btnRename
             // 
-            this.m_btnRename.AccessibleDescription = null;
-            this.m_btnRename.AccessibleName = null;
             resources.ApplyResources(this.m_btnRename, "m_btnRename");
-            this.m_btnRename.BackgroundImage = null;
             this.m_btnRename.Name = "m_btnRename";
             this.m_btnRename.UseVisualStyleBackColor = true;
             this.m_btnRename.Click += new System.EventHandler(this.OnRenameButtonClick);
             // 
-            // m_dlgFolderBrowserDialog
-            // 
-            resources.ApplyResources(this.m_dlgFolderBrowserDialog, "m_dlgFolderBrowserDialog");
-            // 
             // m_lblAbout
             // 
-            this.m_lblAbout.AccessibleDescription = null;
-            this.m_lblAbout.AccessibleName = null;
             resources.ApplyResources(this.m_lblAbout, "m_lblAbout");
             this.m_lblAbout.Name = "m_lblAbout";
             this.m_lblAbout.TabStop = true;
@@ -113,8 +94,6 @@ namespace RenameSmartphonePhotos
             // 
             // m_lblShowLicence
             // 
-            this.m_lblShowLicence.AccessibleDescription = null;
-            this.m_lblShowLicence.AccessibleName = null;
             resources.ApplyResources(this.m_lblShowLicence, "m_lblShowLicence");
             this.m_lblShowLicence.Name = "m_lblShowLicence";
             this.m_lblShowLicence.TabStop = true;
@@ -122,11 +101,8 @@ namespace RenameSmartphonePhotos
             // 
             // RenameFilesForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.Controls.Add(this.m_lblShowLicence);
             this.Controls.Add(this.m_lblAbout);
             this.Controls.Add(this.m_btnRename);
@@ -134,7 +110,6 @@ namespace RenameSmartphonePhotos
             this.Controls.Add(this.mbnChooseFolder);
             this.Controls.Add(this.m_tbxFolder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = null;
             this.MaximizeBox = false;
             this.Name = "RenameFilesForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

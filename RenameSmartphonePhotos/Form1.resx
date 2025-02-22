@@ -117,19 +117,107 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="m_tbxFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="m_tbxFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 42</value>
+  </data>
+  <data name="m_tbxFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="m_tbxFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 26</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="m_tbxFolder.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="m_tbxFolder.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.Name" xml:space="preserve">
+    <value>m_tbxFolder</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="mbnChooseFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="mbnChooseFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 42</value>
+  </data>
+  <data name="mbnChooseFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
   <data name="mbnChooseFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 28</value>
+  </data>
+  <data name="mbnChooseFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="mbnChooseFolder.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.Name" xml:space="preserve">
+    <value>mbnChooseFolder</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="m_lblFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="m_lblFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 12</value>
+  </data>
+  <data name="m_lblFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="m_lblFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="m_lblFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="m_lblFolder.Text" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.Name" xml:space="preserve">
+    <value>m_lblFolder</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;m_lblFolder.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="m_tbxFolder.WordWrap" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;m_lblFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="m_btnRename.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="m_btnRename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 88</value>
+  </data>
+  <data name="m_btnRename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="m_btnRename.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 35</value>
@@ -137,117 +225,62 @@
   <data name="m_btnRename.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="m_lblFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="m_lblAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 20</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.Name" xml:space="preserve">
-    <value>m_lblShowLicence</value>
-  </data>
-  <data name="&gt;&gt;mbnChooseFolder.Name" xml:space="preserve">
-    <value>mbnChooseFolder</value>
-  </data>
-  <data name="m_lblFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mbnChooseFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="m_tbxFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 26</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="m_lblShowLicence.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="&gt;&gt;m_dlgFolderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.Name" xml:space="preserve">
-    <value>m_lblFolder</value>
-  </data>
-  <data name="m_lblAbout.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="m_lblShowLicence.Text" xml:space="preserve">
-    <value>Licence (GPL v2)</value>
-  </data>
-  <data name="&gt;&gt;m_btnRename.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;m_dlgFolderBrowserDialog.Name" xml:space="preserve">
-    <value>m_dlgFolderBrowserDialog</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Name" xml:space="preserve">
-    <value>m_tbxFolder</value>
-  </data>
-  <data name="m_btnRename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="m_tbxFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="m_lblFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="m_btnRename.Text" xml:space="preserve">
+    <value>Rename</value>
   </data>
   <data name="&gt;&gt;m_btnRename.Name" xml:space="preserve">
     <value>m_btnRename</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+  <data name="&gt;&gt;m_btnRename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mbnChooseFolder.Parent" xml:space="preserve">
+  <data name="&gt;&gt;m_btnRename.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;m_btnRename.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="m_dlgFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="m_lblAbout.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="m_lblAbout.Location" type="System.Drawing.Point, System.Drawing">
     <value>184, 96</value>
   </data>
-  <data name="mbnChooseFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="m_lblAbout.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="mbnChooseFolder.Text" xml:space="preserve">
-    <value>...</value>
+  <data name="m_lblAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 20</value>
+  </data>
+  <data name="m_lblAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="m_lblAbout.Text" xml:space="preserve">
     <value>About Rename Smartphone Photos</value>
   </data>
-  <data name="m_btnRename.Text" xml:space="preserve">
-    <value>Rename</value>
+  <data name="&gt;&gt;m_lblAbout.Name" xml:space="preserve">
+    <value>m_lblAbout</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>698, 147</value>
+  <data name="&gt;&gt;m_lblAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mbnChooseFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;m_lblAbout.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;m_lblAbout.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;mbnChooseFolder.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="m_lblShowLicence.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="m_lblShowLicence.Location" type="System.Drawing.Point, System.Drawing">
+    <value>506, 96</value>
+  </data>
+  <data name="m_lblShowLicence.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="m_lblShowLicence.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 20</value>
@@ -255,85 +288,159 @@
   <data name="m_lblShowLicence.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="m_btnRename.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 88</value>
+  <data name="m_lblShowLicence.Text" xml:space="preserve">
+    <value>Licence (GPL v2)</value>
   </data>
-  <data name="m_lblFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 12</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;m_lblShowLicence.Name" xml:space="preserve">
+    <value>m_lblShowLicence</value>
   </data>
   <data name="&gt;&gt;m_lblShowLicence.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;m_btnRename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;m_lblShowLicence.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Rename Smartphone Photos</value>
-  </data>
-  <data name="m_lblFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="m_lblShowLicence.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="m_tbxFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 42</value>
-  </data>
-  <data name="m_lblFolder.Text" xml:space="preserve">
-    <value>Folder</value>
-  </data>
-  <data name="m_lblAbout.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="mbnChooseFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Name" xml:space="preserve">
-    <value>m_lblAbout</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="m_lblShowLicence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 96</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="m_lblAbout.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="mbnChooseFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 42</value>
-  </data>
-  <data name="m_btnRename.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RenameFilesForm</value>
-  </data>
-  <data name="m_tbxFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;m_btnRename.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;m_lblShowLicence.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="m_dlgFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Chinese (Traditional)</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>698, 147</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAAAAAAAEAIACsGAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAGHNJ
+        REFUeJzt3XuQXFWdB/Dv7/ZjQjZD3tPJJLBQJMprl0eI8yQbKBUSFh8oQzKPQAoQXZXV3aLQVakIqxa7
+        7lpqUYouRTGZGcJE1EU3QeQxyEw3IQKGXQQlGGTJMD0TYkISkunue3/7R2AJMX36cc+d6dt8P1X+YZ0z
+        v9856dM/uvveew5ARERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERE
+        REREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREFCIyUYnunLF8Riye
+        eR9Elgj0DIUuEkg9gJkAjgPgAjgI6G7AGYbgRfF0G4BUdHTBE23Y6E7UWEu1oa75FNeRFeJ556nIaQBO
+        AFCLw/M6IMA+hbwE6HOAPO642Lx619DwpA46j2qaCxUWWAFYBziL5zWdB8hKKC4BsMRHvtch8lMPcmfX
+        yOCAtUH6sGnRipo9+/e2q+J6AGeX+veieMxz8J34yIKfTHZxq6a5vKU70VwXhdPgwWsQSAOgSwFMz9df
+        VO9qH01dNXEjrAzWC0BfXXMTBGsV+AiAubbjA/i1ePqV9rHU/QHELkpfovVShfttQE72G0uAbZ56n+4c
+        fXzIxthKVQ1zufOk5VNq3sicoyKNgDYAaABwUikxWAB8uGt204JYFF2qchUE77URsxBR/Cgby33yyp1P
+        vDYR+QCg/4wz4tld028DcI3l0Kqit3SMpNYJoJZjH1NY56KA3DOndbHreA2ANEC0AcBZAGJ+4rIA+NCb
+        aB4A8Dc2YpXof72I95Gu4cefCjrRHXNaaqdEsBnQlsCSiP64fqTmigswkAssB8I9l7vnt5znebrVZkzg
+        3VsAnMkegE8nOK7zSE9dY3ALGcDt9UumTonqpkDfMACgctlwItvXj8sjQaWoprmQfxNdADIAHgXwz6L6
+        URE5MxbT2fvT4/GYF6+Fg5NUvVYIvgDglyjuI+TxIs7P+uqbTg1q0NPcKT+EorWIrikV/Qw8nJMZj8+s
+        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
+        pCfR3CfA6iKGMATVXg9OUnLZHfHdJx44MGOsNjYls9jxcD4EaxQ4q4iUX+9IJ7/ke+BH6KtfPkfdzJjN
+        mOVQ4Gud6eSXJ3sc5eJasMf2Wghsl1YP066NyP4ToMY7tABoCwQtDjwgFkE2sRNxAFAUvYu7KH4UHV1w
+        k98xUzC4FipXYAeDrEk/cOBQTlYqkAwqBwBA9Mf7Rsfb27DRDTQPlY1roXIFejLQ1buG9s2qnX4hoHcE
+        EF4hckv7SOrj1+FJ44EUNPm4FipT4EeDrdy+ebwjnbrGg3wYUPOOMUWTZ8RzlnWMDN3EmzzCg2uh8gRe
+        AN7SlR66b2btjNMAuUaAbWUFEQxCtC2Wrj+3fWxw0PIQaYJwLVSOSTsscf3cpkVOxLkYwFKonq6QhQKv
+        FpApOPw46esA/gjobwXO49mct/nK11Lc1bUKcS0QERERERERERERERERERERERERERERERERERERERER
+        ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERER
+        ERERERERERERERERERHR//s/J45hPyK3BBwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Rename Smartphone Photos</value>
+  </data>
+  <data name="&gt;&gt;m_dlgFolderBrowserDialog.Name" xml:space="preserve">
+    <value>m_dlgFolderBrowserDialog</value>
+  </data>
+  <data name="&gt;&gt;m_dlgFolderBrowserDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RenameFilesForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
