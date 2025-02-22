@@ -113,7 +113,8 @@ namespace RenameSmartphonePhotos
                         if (s_oRegex1.IsMatch(fi.Name))
                         {
                             // date with prefix matched - move prefix to the time
-                            string strNewName = System.IO.Path.Combine(di.FullName, s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
+                            string strNewName = System.IO.Path.Combine(di.FullName, 
+                                s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
 
                             System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
                             string newModd = strNewName + ".modd";
