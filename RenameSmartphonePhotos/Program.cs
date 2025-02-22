@@ -1,7 +1,7 @@
 ﻿/*  RenameSmartphonePhotos tries to provide means in ordering your family photos based
     on the date they have been taken
 
-    Copyright (C) 2024 NataljaNeumann@gmx.de
+    Copyright (C) 2024-2025 NataljaNeumann@gmx.de
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,11 +25,18 @@ using System.Windows.Forms;
 
 namespace RenameSmartphonePhotos
 {
+    //*******************************************************************************************************
+    /// <summary>
+    /// Main class of the application
+    /// </summary>
+    //*******************************************************************************************************
     static class Program
     {
+        //==================================================================================================
         /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
+        /// Main entry point of the application
         /// </summary>
+        //==================================================================================================
         [STAThread]
         static void Main()
         {
