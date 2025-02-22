@@ -346,5 +346,19 @@ namespace RenameSmartphonePhotos
                 dlgAbout.ShowDialog(this);
             }
         }
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user requests help
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oEventArgs">Event args</param>
+        //===================================================================================================
+        private void OnHelpRequested(
+            object oSender, HelpEventArgs  oEventArgs)
+        {
+            System.Diagnostics.Process.Start(System.IO.Path.Combine(Application.StartupPath, "Readme.html"));
+        }
+
     }
 }
