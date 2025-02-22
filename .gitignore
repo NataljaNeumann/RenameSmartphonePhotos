@@ -1,5 +1,6 @@
 RenameSmartphonePhotos/obj/**
 RenameSmartphonePhotos/bin/Release/**
 RenameSmartphonePhotos/bin/Debug/**
+RenameSmartphonePhotos/bin/*.zip
 *.user
 *.suo
