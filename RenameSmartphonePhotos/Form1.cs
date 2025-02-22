@@ -112,7 +112,7 @@ namespace RenameSmartphonePhotos
 
                         if (s_oRegex1.IsMatch(fi.Name))
                         {
-                            //string strNewName = System.IO.Path.Combine(di.FullName, regex.Replace(fi.Name, "$2-$3-$4 $1$5"));
+                            // date with prefix matched - move prefix to the time
                             string strNewName = System.IO.Path.Combine(di.FullName, s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
 
                             System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
@@ -151,10 +151,9 @@ namespace RenameSmartphonePhotos
                         {
                             if (s_oRegex3.IsMatch(fi.Name))
                             {
+                                // date and time, all concatenated together - split the information and make it human readable
                                 string strNewName = System.IO.Path.Combine(
                                     di.FullName, s_oRegex3.Replace(fi.Name, "$1-$2-$3 $4$5.$6"));
-                                //string strNewName = System.IO.Path.Combine(
-                                //    di.FullName, regex3.Replace(fi.Name, "$2-$3-$4 $5.$6"));
 
                                 System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
                                 string newModd = strNewName + ".modd";
@@ -193,8 +192,10 @@ namespace RenameSmartphonePhotos
                             }
                             else
                             {
+                                // maybe it is already correctly formatted?
                                 if (!s_oRegex2.IsMatch(fi.Name))
                                 {
+                                    // if not - try to get metadata
                                     System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex(":");
                                     string strNewName = null;
                                     try
@@ -219,6 +220,7 @@ namespace RenameSmartphonePhotos
                                                     }
                                                     else
                                                     {
+                                                        // if we couldn't get any meaningful date default to file modification date
                                                         strNewName = System.IO.Path.Combine(di.FullName,
                                                             string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                             fi.LastWriteTime.Year, fi.LastWriteTime.Month,
@@ -227,6 +229,8 @@ namespace RenameSmartphonePhotos
                                                 }
                                                 else
                                                 {
+
+                                                    // if we couldn't get any meaningful date default to file modification date
                                                     strNewName = System.IO.Path.Combine(di.FullName,
                                                         string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                         fi.LastWriteTime.Year, fi.LastWriteTime.Month,
@@ -235,6 +239,7 @@ namespace RenameSmartphonePhotos
                                             }
                                             catch (ArgumentException)
                                             {
+                                                // if we couldn't get any meaningful date default to file modification date
                                                 strNewName = System.IO.Path.Combine(di.FullName,
                                                     string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                     fi.LastWriteTime.Year, fi.LastWriteTime.Month,
@@ -244,6 +249,7 @@ namespace RenameSmartphonePhotos
                                     }
                                     catch (ArgumentException)
                                     {
+                                        // if we couldn't get any meaningful date default to file modification date
                                         strNewName = System.IO.Path.Combine(di.FullName,
                                             string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                             fi.LastWriteTime.Year, fi.LastWriteTime.Month,
@@ -256,6 +262,7 @@ namespace RenameSmartphonePhotos
                                         System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
                                         string newModd = strNewName + ".modd";
 
+                                        // Files, created by SaveMyFiles and SyncFolders
                                         System.IO.FileInfo fi3 = new System.IO.FileInfo(
                                             System.IO.Path.Combine(System.IO.Path.Combine(
                                             fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
@@ -293,6 +300,7 @@ namespace RenameSmartphonePhotos
                     }
                     catch (Exception oEx)
                     {
+                        // if something unexpected happens with a file - show to user
                         System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text, 
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -300,6 +308,7 @@ namespace RenameSmartphonePhotos
             }
             catch (Exception oEx)
             {
+                // if something unexpected happens - show to user
                 System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
