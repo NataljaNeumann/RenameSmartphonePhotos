@@ -22,6 +22,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Globalization;
+using System.IO;
 
 namespace RenameSmartphonePhotos
 {
@@ -32,14 +34,96 @@ namespace RenameSmartphonePhotos
     //*******************************************************************************************************
     static class Program
     {
-        //==================================================================================================
+        //===================================================================================================
+        /// <summary>
+        /// Indicates that the application runs in a predominantly islamic country;
+        /// </summary>
+        public static bool IslamicCountry; 
+
+        //===================================================================================================
         /// <summary>
         /// Main entry point of the application
         /// </summary>
-        //==================================================================================================
+        //===================================================================================================
         [STAThread]
         static void Main()
         {
+#if DEBUG
+            //set test culture
+            //string strSetCulture =
+            // "af-ZA";
+            // "ar-SA";
+            // "az-AZ";
+            // "be-BY";
+            // "bg-BG";
+            // "bs-Latn-BA";
+            // "cs-CZ";
+            // "da-DK";
+            // "de-DE";
+            // "el-GR";
+            // "es-ES";
+            // "et-EE";
+            // "fa-IR";
+            // "fi-FI";
+            // "fr-FR";
+            // "he-IL";
+            // "hi-IN";
+            // "hu-HU";
+            // "hy-AM";
+            // "id-ID";
+            // "is-IS";
+            // "it-IT";
+            // "ja-JP";
+            // "ka-GE";
+            // "kk-KZ";
+            // "km-KH";
+            // "ko-KR";
+            // "ky-KG";
+            // "lt-LT";
+            // "lv-LV";
+            // "mk-MK";
+            // "mn-MN";
+            // "ms-MY";
+            // "nl-NL";
+            // "no-NO";
+            // "pa-Arab-PK";
+            // "pa-IN";
+            // "pl-PL";
+            // "ps-AF";
+            // "pt-PT";
+            // "en-US";
+            // "ro-RO";
+            // "ru-RU";
+            // "sa-IN";
+            // "sk-SK";
+            // "sl-SL";
+            // "sr-Latn-RS"; // TODO: need a fix
+            // "sv-SE";
+            // "tg-Cyrl-TJ";
+            // "th-TH";
+            // "tr-TR";
+            // "uk-UA";
+            // "uz-Latn-UZ";
+            // "vi-VN";
+            // "zh-TW";
+            // "zh-CN";
+            //System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(strSetCulture);
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(strSetCulture);
+#endif
+
+            var astrIslamicCountries = new[]
+            {
+                "AF", "DZ", "BH", "BD", "BJ", "BN", "BF", "CM", "TD", "KM",
+                "DJ", "EG", "GM", "GN", "ID", "IR", "IQ", "JO", "KZ", "KW",
+                "KG", "LB", "LY", "MY", "MV", "ML", "MR", "MA", "MZ", "NE",
+                "NG", "OM", "PK", "PS", "QA", "SA", "SN", "SO", "SS", "SD",
+                "SY", "TJ", "TG", "TN", "TR", "TM", "AE", "UZ", "EH", "YE"
+            };
+
+
+            string cultureName = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+            IslamicCountry = Array.Exists(astrIslamicCountries, code => cultureName.Contains(code));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RenameFilesForm());

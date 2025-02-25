@@ -541,9 +541,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="RenameSmartphonePhotos.ico" />
-    <Content Include="RenameSmartphonePhotosHeader.jpg">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RenameSmartphonePhotosHeader.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -569,6 +571,7 @@
   copy /Y "$(SolutionDir).gitignore" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\"
   copy /Y "$(ProjectDir)*.cs" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\"
   copy /Y "$(ProjectDir)*.ico" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\"
+  copy /Y "$(ProjectDir)*.dat" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\"
   copy /Y "$(ProjectDir)Readme.*" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\"
   copy /Y "$(ProjectDir)*.resx" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\"
   copy /Y "$(ProjectDir)Properties\*.resx" "$(TargetDir)ZZ_SOURCE_CODE_ZZ\$(ProjectName)\Properties\"
@@ -584,6 +587,8 @@
   rmdir /S /Q ZZ_SOURCE_CODE_ZZ
   del /Q "*.pdb"
   tar.exe -a -c -f ..\$(ProjectName).zip *.*
-)</PostBuildEvent>
+)
+
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

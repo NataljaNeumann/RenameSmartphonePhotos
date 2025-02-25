@@ -27,6 +27,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RenameSmartphonePhotos
 {
@@ -66,7 +67,7 @@ namespace RenameSmartphonePhotos
         public RenameFilesForm()
         {
             InitializeComponent();
-            ReadyToUseImageInjection("RenameSmartphonePhotosHeader.jpg");
+            ReadyToUseImageInjection("RenameSmartphonePhotosHeader.dat");
         }
 
 
@@ -412,6 +413,7 @@ namespace RenameSmartphonePhotos
         //===================================================================================================
         private void ReadyToUseImageInjection(string strImageName)
         {
+
             string strImagePath = System.IO.Path.Combine(Application.StartupPath, strImageName);
             if (System.IO.File.Exists(strImagePath))
             {
@@ -432,6 +434,8 @@ namespace RenameSmartphonePhotos
             }
         }
 
+
+
         //===================================================================================================
         /// <summary>
         /// Resizes image along with the form
@@ -444,6 +448,8 @@ namespace RenameSmartphonePhotos
             ResizeImageAndShiftElements();
         }
 
+
+
         //===================================================================================================
         /// <summary>
         /// Loads an image and resizes it to the width of client area
@@ -452,7 +458,37 @@ namespace RenameSmartphonePhotos
         //===================================================================================================
         private void LoadAndResizeImage(string strImagePath)
         {
-            m_oLoadedImage = Image.FromFile(strImagePath);
+
+            try
+            {
+                using (FileStream fs = new FileStream(strImagePath, FileMode.Open, FileAccess.Read))
+                {
+                    byte[] imageBytes;
+
+                    if (!Program.IslamicCountry)
+                    {
+                        imageBytes = new byte[295418];
+                        fs.Read(imageBytes, 0, 295418);
+                    }
+                    else
+                    {
+                        fs.Seek(295418, SeekOrigin.Begin);
+                        int remainingBytes = (int)(fs.Length - 295418);
+                        imageBytes = new byte[remainingBytes];
+                        fs.Read(imageBytes, 0, remainingBytes);
+                    }
+
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        m_oLoadedImage = Image.FromStream(ms);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
             ResizeImageAndShiftElements();
         }
 
