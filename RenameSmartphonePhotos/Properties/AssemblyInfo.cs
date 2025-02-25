@@ -1,7 +1,7 @@
 ﻿/*  RenameSmartphonePhotos tries to provide means in ordering your family photos based
     on the date they have been taken
 
-    Copyright (C) 2024  NataljaNeumann@gmx.de
+    Copyright (C) 2024-2025  NataljaNeumann@gmx.de
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RenameSmartphonePhotos")]
-[assembly: AssemblyCopyright("Copyright © 2024 NataljaNeumann@gmx.de")]
+[assembly: AssemblyCopyright("Copyright © 2024-2025 NataljaNeumann@gmx.de")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -52,5 +52,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

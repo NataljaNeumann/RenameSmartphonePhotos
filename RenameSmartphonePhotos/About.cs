@@ -1,4 +1,4 @@
-﻿/*  RenameSmartphonePhotos v1.0
+﻿/*  RenameSmartphonePhotos v1.1
     Copyright (C) 2024-2025 NataljaNeumann@gmx.de
 
     This program is free software; you can redistribute it and/or modify
