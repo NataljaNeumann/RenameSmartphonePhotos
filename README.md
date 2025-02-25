@@ -4,6 +4,7 @@
   
 [Latest Sources and Releases](https://github.com/NataljaNeumann/RenameSmartphonePhotos)  
   
+![RenameSmartphonePhotos](https://github.com/user-attachments/assets/9c6c6de6-bf07-40fb-bc8c-75a19fc15798)
   
 
 ‎[English](#en), [Français](#fr), [Español](#es), [Português](#pt), [Italiano](#it), [Deutsch](#de), [По русски](#ru), [Polski](#pl), [Στα ελληνικά](#gr), 
