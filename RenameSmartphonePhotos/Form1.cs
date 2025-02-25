@@ -454,39 +454,42 @@ namespace RenameSmartphonePhotos
         /// <summary>
         /// Loads an image and resizes it to the width of client area
         /// </summary>
-        /// <param name="strImagePath"></param>
+        /// <param name="strImagePath">Path to header image file</param>
         //===================================================================================================
         private void LoadAndResizeImage(string strImagePath)
         {
 
             try
             {
-                using (FileStream fs = new FileStream(strImagePath, FileMode.Open, FileAccess.Read))
+                using (FileStream oStream = new FileStream(strImagePath, FileMode.Open, FileAccess.Read))
                 {
-                    byte[] imageBytes;
+                    byte[] aImageBytes;
 
-                    if (!Program.IslamicCountry)
+                    if (Program.IslamicCountry)
                     {
-                        imageBytes = new byte[295418];
-                        fs.Read(imageBytes, 0, 295418);
+                        oStream.Seek(1, SeekOrigin.Begin);
+                        aImageBytes = new byte[259106];
+                        oStream.Read(aImageBytes, 0, 259106);
                     }
                     else
                     {
-                        fs.Seek(295418, SeekOrigin.Begin);
-                        int remainingBytes = (int)(fs.Length - 295418);
-                        imageBytes = new byte[remainingBytes];
-                        fs.Read(imageBytes, 0, remainingBytes);
+                        oStream.Seek(259107, SeekOrigin.Begin);
+                        int nRemainingBytes = (int)(oStream.Length - 259107);
+                        aImageBytes = new byte[nRemainingBytes];
+                        oStream.Read(aImageBytes, 0, nRemainingBytes);
                     }
 
-                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    using (MemoryStream oMemoryStream = new MemoryStream(aImageBytes))
                     {
-                        m_oLoadedImage = Image.FromStream(ms);
+                        m_oLoadedImage = Image.FromStream(oMemoryStream);
                     }
                 }
+
+
             }
-            catch (Exception ex)
+            catch (Exception oEx)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                // ignore
             }
 
             ResizeImageAndShiftElements();
@@ -526,12 +529,14 @@ namespace RenameSmartphonePhotos
         /// <summary>
         /// Shifts elements, apart from the image box up or down
         /// </summary>
-        /// <param name="nHeightChange"></param>
+        /// <param name="nHeightChange">Change in the heights, compared to previous position</param>
+        //===================================================================================================
         private void ShiftOtherElementsUpOrDown(int nHeightChange)
         {
             foreach (Control ctl in m_oOriginalPositions.Keys)
             {
-                ctl.Top = m_oOriginalPositions[ctl] + nHeightChange;
+                if ((ctl.Anchor & AnchorStyles.Bottom) == AnchorStyles.None)
+                    ctl.Top += nHeightChange;
             }
         }
         #endregion
