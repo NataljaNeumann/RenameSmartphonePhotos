@@ -103,26 +103,29 @@ namespace RenameSmartphonePhotos
             string strComplementExt
             )
         {
-            string strComplementPath = strOriginalJpeg.Replace(".JPG", strComplementExt);
-            string strNewName = strOriginalJpegNewName.Replace(".JPG", strComplementExt);
-
-            FileInfo fi = new FileInfo(strComplementPath);
-
-            if (fi.Exists)
+            if (strOriginalJpeg.EndsWith(".JPG"))
             {
-                fi.MoveTo(strNewName);
+                string strComplementPath = strOriginalJpeg.Replace(".JPG", strComplementExt);
+                string strNewName = strOriginalJpegNewName.Replace(".JPG", strComplementExt);
 
-                System.IO.FileInfo fi3 = new System.IO.FileInfo(
-                    System.IO.Path.Combine(System.IO.Path.Combine(
-                    fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
+                FileInfo fi = new FileInfo(strComplementPath);
 
-                if (fi3.Exists)
+                if (fi.Exists)
                 {
-                    // Files, created by SaveMyFiles and SyncFolders
-                    string newName3 = System.IO.Path.Combine(
-                        System.IO.Path.Combine(fi.Directory.FullName, "RestoreInfo"),
-                        strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
-                    fi3.MoveTo(newName3);
+                    fi.MoveTo(strNewName);
+
+                    System.IO.FileInfo fi3 = new System.IO.FileInfo(
+                        System.IO.Path.Combine(System.IO.Path.Combine(
+                        fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
+
+                    if (fi3.Exists)
+                    {
+                        // Files, created by SaveMyFiles and SyncFolders
+                        string newName3 = System.IO.Path.Combine(
+                            System.IO.Path.Combine(fi.Directory.FullName, "RestoreInfo"),
+                            strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
+                        fi3.MoveTo(newName3);
+                    }
                 }
             }
         }
@@ -356,6 +359,7 @@ namespace RenameSmartphonePhotos
 
                                         RenameComplementFile(strOriginalName, strNewName, ".RAF");
                                         RenameComplementFile(strOriginalName, strNewName, ".CR2");
+                                        RenameComplementFile(strOriginalName, strNewName, ".MOV");
                                     }
                                 }
                             }
