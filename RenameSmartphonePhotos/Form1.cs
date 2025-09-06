@@ -44,6 +44,7 @@ namespace RenameSmartphonePhotos
         /// </summary>
         static System.Text.RegularExpressions.Regex s_oRegex1 =
             new System.Text.RegularExpressions.Regex(@"(.*)(20\d\d)(\d\d)(\d\d)[\s_-](.*)");
+
         //===================================================================================================
         /// <summary>
         /// File name already in target format, e.g 2001-01-01 124951.jpg
@@ -91,6 +92,43 @@ namespace RenameSmartphonePhotos
 
         //===================================================================================================
         /// <summary>
+        /// Renames a complement file, that belongs to original image file
+        /// </summary>
+        /// <param name="strOriginalJpeg">Original file path</param>
+        /// <param name="strComplementExt">The extention of complement, e.g. raw file</param>
+        //===================================================================================================
+        void RenameComplementFile(
+            string strOriginalJpeg, 
+            string strOriginalJpegNewName, 
+            string strComplementExt
+            )
+        {
+            string strComplementPath = strOriginalJpeg.Replace(".JPG", strComplementExt);
+            string strNewName = strOriginalJpegNewName.Replace(".JPG", strComplementExt);
+
+            FileInfo fi = new FileInfo(strComplementPath);
+
+            if (fi.Exists)
+            {
+                fi.MoveTo(strNewName);
+
+                System.IO.FileInfo fi3 = new System.IO.FileInfo(
+                    System.IO.Path.Combine(System.IO.Path.Combine(
+                    fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
+
+                if (fi3.Exists)
+                {
+                    // Files, created by SaveMyFiles and SyncFolders
+                    string newName3 = System.IO.Path.Combine(
+                        System.IO.Path.Combine(fi.Directory.FullName, "RestoreInfo"),
+                        strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
+                    fi3.MoveTo(newName3);
+                }
+            }
+        }
+
+        //===================================================================================================
+        /// <summary>
         /// This is executed when user clicks the rename button
         /// </summary>
         /// <param name="oSender">Sender object</param>
@@ -105,8 +143,24 @@ namespace RenameSmartphonePhotos
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(m_tbxFolder.Text);
 
-                foreach (System.IO.FileInfo fi in di.GetFiles())
+                foreach (string strPattern in new string [] {"*.JPG","*.*" })
+                foreach (System.IO.FileInfo fi in di.GetFiles(strPattern))
                 {
+                    string strReducedName = fi.Name;
+                    if (strReducedName.StartsWith("DSC "))
+                        strReducedName = strReducedName.Substring(4);
+                    if (strReducedName.StartsWith("DSC"))
+                        strReducedName = strReducedName.Substring(3);
+                    if (strReducedName.StartsWith("_DSF"))
+                        strReducedName = strReducedName.Substring(4);
+                    if (strReducedName.StartsWith("DSF"))
+                        strReducedName = strReducedName.Substring(3);
+                    if (strReducedName.StartsWith("IMG_"))
+                        strReducedName = strReducedName.Substring(4);
+                    if (strReducedName.StartsWith("_MG_"))
+                        strReducedName = strReducedName.Substring(4);
+                    strReducedName = strReducedName.Trim();
+
                     try
                     {
                         if (fi.Name.ToLower().Contains(".modd") || fi.Name.ToUpper().Contains("THUMBS.DB"))
@@ -219,7 +273,7 @@ namespace RenameSmartphonePhotos
                                                         strNewName = System.IO.Path.Combine(di.FullName,
                                                             string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                             t.Year, t.Month, t.Day,
-                                                            fi.Name.Replace("DSC_", "").Replace("DSC ", "").Trim()));
+                                                            strReducedName));
                                                     }
                                                     else
                                                     {
@@ -227,7 +281,7 @@ namespace RenameSmartphonePhotos
                                                         strNewName = System.IO.Path.Combine(di.FullName,
                                                             string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                             fi.LastWriteTime.Year, fi.LastWriteTime.Month,
-                                                            fi.LastWriteTime.Day, fi.Name));
+                                                            fi.LastWriteTime.Day, strReducedName));
                                                     }
                                                 }
                                                 else
@@ -237,7 +291,7 @@ namespace RenameSmartphonePhotos
                                                     strNewName = System.IO.Path.Combine(di.FullName,
                                                         string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                         fi.LastWriteTime.Year, fi.LastWriteTime.Month,
-                                                        fi.LastWriteTime.Day, fi.Name));
+                                                        fi.LastWriteTime.Day, strReducedName));
                                                 }
                                             }
                                             catch (ArgumentException)
@@ -246,7 +300,7 @@ namespace RenameSmartphonePhotos
                                                 strNewName = System.IO.Path.Combine(di.FullName,
                                                     string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                                     fi.LastWriteTime.Year, fi.LastWriteTime.Month,
-                                                    fi.LastWriteTime.Day, fi.Name));
+                                                    fi.LastWriteTime.Day, strReducedName));
                                             }
                                         }
                                     }
@@ -256,14 +310,17 @@ namespace RenameSmartphonePhotos
                                         strNewName = System.IO.Path.Combine(di.FullName,
                                             string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
                                             fi.LastWriteTime.Year, fi.LastWriteTime.Month,
-                                            fi.LastWriteTime.Day, fi.Name));
+                                            fi.LastWriteTime.Day, strReducedName));
                                     }
 
 
                                     if (strNewName != null)
                                     {
+                                        string strOriginalName = fi.FullName;
+
                                         System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
                                         string newModd = strNewName + ".modd";
+
 
                                         // Files, created by SaveMyFiles and SyncFolders
                                         System.IO.FileInfo fi3 = new System.IO.FileInfo(
@@ -296,6 +353,9 @@ namespace RenameSmartphonePhotos
 
                                             fi3.MoveTo(newName3);
                                         }
+
+                                        RenameComplementFile(strOriginalName, strNewName, ".RAF");
+                                        RenameComplementFile(strOriginalName, strNewName, ".CR2");
                                     }
                                 }
                             }
