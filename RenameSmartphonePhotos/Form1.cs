@@ -152,6 +152,8 @@ namespace RenameSmartphonePhotos
                     string strReducedName = fi.Name;
                     if (strReducedName.StartsWith("DSC "))
                         strReducedName = strReducedName.Substring(4);
+                    if (strReducedName.StartsWith("DSCF"))
+                        strReducedName = strReducedName.Substring(4);
                     if (strReducedName.StartsWith("DSC"))
                         strReducedName = strReducedName.Substring(3);
                     if (strReducedName.StartsWith("_DSF"))
