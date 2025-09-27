@@ -28,6 +28,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace RenameSmartphonePhotos
 {
@@ -399,7 +401,26 @@ namespace RenameSmartphonePhotos
             LinkLabelLinkClickedEventArgs oArgs
             )
         {
-            System.Diagnostics.Process.Start("https://www.gnu.org/licenses/gpl-2.0.html");
+            string strUrl = "https://www.gnu.org/licenses/gpl-2.0.html";
+            try
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    Process.Start(new ProcessStartInfo(strUrl) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", strUrl);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", strUrl);
+                }
+            }
+            catch (Exception oEx)
+            {
+                MessageBox.Show("Could not open browser: " + oEx.Message);
+            }
         }
 
 
@@ -557,7 +578,7 @@ namespace RenameSmartphonePhotos
 
 
             }
-            catch (Exception oEx)
+            catch (Exception)
             {
                 // ignore
             }
