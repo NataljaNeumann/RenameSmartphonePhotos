@@ -36,7 +36,7 @@ namespace RenameSmartphonePhotos
     /// Main form of the application
     /// </summary>
     //*******************************************************************************************************
-    public partial class RenameFilesForm : Form
+    public partial class Form1 : Form
     {
         //===================================================================================================
         /// <summary>
@@ -65,9 +65,13 @@ namespace RenameSmartphonePhotos
         /// Constructs a new form
         /// </summary>
         //===================================================================================================
-        public RenameFilesForm()
+        public Form1()
         {
             InitializeComponent();
+
+            System.ComponentModel.ComponentResourceManager res = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            res.ApplyResources(this, "$this");
+
             ReadyToUseImageInjection("RenameSmartphonePhotosHeader.dat");
         }
 

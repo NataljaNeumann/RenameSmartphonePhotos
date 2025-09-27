@@ -118,136 +118,115 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="m_btnRename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="m_lblAbout.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;m_lblShowLicence.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_lblShowLicence.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_lblAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m_tbxFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="m_lblFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="&gt;&gt;m_btnRename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m_tbxFolder.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 42</value>
-  </data>
-  <data name="m_tbxFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="m_tbxFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 26</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="m_tbxFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="m_tbxFolder.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Name" xml:space="preserve">
-    <value>m_tbxFolder</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_tbxFolder.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="mbnChooseFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="mbnChooseFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 42</value>
-  </data>
-  <data name="mbnChooseFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
   <data name="mbnChooseFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 28</value>
-  </data>
-  <data name="mbnChooseFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="mbnChooseFolder.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;mbnChooseFolder.Name" xml:space="preserve">
-    <value>mbnChooseFolder</value>
-  </data>
-  <data name="&gt;&gt;mbnChooseFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mbnChooseFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mbnChooseFolder.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="m_lblFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="m_lblFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 12</value>
-  </data>
-  <data name="m_lblFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="m_lblFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="m_lblFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="m_lblFolder.Text" xml:space="preserve">
-    <value>Folder</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.Name" xml:space="preserve">
-    <value>m_lblFolder</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_lblFolder.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="m_btnRename.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="m_btnRename.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 88</value>
+  <data name="m_lblShowLicence.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="m_btnRename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="&gt;&gt;m_tbxFolder.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="m_lblFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 12</value>
+  </data>
+  <data name="m_lblShowLicence.Location" type="System.Drawing.Point, System.Drawing">
+    <value>506, 96</value>
+  </data>
+  <data name="mbnChooseFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
   <data name="m_btnRename.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 35</value>
   </data>
-  <data name="m_btnRename.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="m_tbxFolder.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="m_btnRename.Text" xml:space="preserve">
     <value>Rename</value>
   </data>
-  <data name="&gt;&gt;m_btnRename.Name" xml:space="preserve">
-    <value>m_btnRename</value>
-  </data>
-  <data name="&gt;&gt;m_btnRename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_btnRename.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_btnRename.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="m_dlgFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="m_lblAbout.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="m_lblAbout.Location" type="System.Drawing.Point, System.Drawing">
     <value>184, 96</value>
+  </data>
+  <data name="m_lblShowLicence.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="m_btnRename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 88</value>
+  </data>
+  <data name="m_lblFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;m_lblAbout.Name" xml:space="preserve">
+    <value>m_lblAbout</value>
+  </data>
+  <data name="m_tbxFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Rename Smartphone Photos</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="m_lblShowLicence.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="&gt;&gt;m_lblShowLicence.Name" xml:space="preserve">
+    <value>m_lblShowLicence</value>
+  </data>
+  <data name="&gt;&gt;m_lblShowLicence.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="m_btnRename.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="m_lblAbout.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -255,65 +234,11 @@
   <data name="m_lblAbout.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 20</value>
   </data>
-  <data name="m_lblAbout.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;mbnChooseFolder.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="m_lblAbout.Text" xml:space="preserve">
     <value>About Rename Smartphone Photos</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Name" xml:space="preserve">
-    <value>m_lblAbout</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_lblAbout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="m_lblShowLicence.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="m_lblShowLicence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 96</value>
-  </data>
-  <data name="m_lblShowLicence.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="m_lblShowLicence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 20</value>
-  </data>
-  <data name="m_lblShowLicence.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="m_lblShowLicence.Text" xml:space="preserve">
-    <value>Licence (GPL v2)</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.Name" xml:space="preserve">
-    <value>m_lblShowLicence</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_lblShowLicence.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>698, 147</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -425,22 +350,97 @@
         ERERERERERERERERERHR//s/J45hPyK3BBwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+  <data name="m_lblFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Rename Smartphone Photos</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>698, 147</value>
+  </data>
+  <data name="m_lblAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="m_tbxFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 26</value>
+  </data>
+  <data name="&gt;&gt;m_btnRename.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;m_tbxFolder.Name" xml:space="preserve">
+    <value>m_tbxFolder</value>
+  </data>
+  <data name="m_lblFolder.Text" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.Name" xml:space="preserve">
+    <value>m_lblFolder</value>
+  </data>
+  <data name="&gt;&gt;m_lblFolder.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;m_dlgFolderBrowserDialog.Name" xml:space="preserve">
     <value>m_dlgFolderBrowserDialog</value>
   </data>
+  <data name="&gt;&gt;m_tbxFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;m_dlgFolderBrowserDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RenameFilesForm</value>
+  <data name="&gt;&gt;mbnChooseFolder.Name" xml:space="preserve">
+    <value>mbnChooseFolder</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;m_lblAbout.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
+  <data name="m_tbxFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="mbnChooseFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 42</value>
+  </data>
+  <data name="m_lblShowLicence.Text" xml:space="preserve">
+    <value>Licence (GPL v2)</value>
+  </data>
+  <data name="mbnChooseFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;m_lblAbout.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;m_btnRename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="m_lblShowLicence.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 20</value>
+  </data>
+  <data name="mbnChooseFolder.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="m_lblFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;m_btnRename.Name" xml:space="preserve">
+    <value>m_btnRename</value>
+  </data>
+  <data name="&gt;&gt;mbnChooseFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="m_dlgFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

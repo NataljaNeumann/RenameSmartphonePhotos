@@ -126,7 +126,7 @@ namespace RenameSmartphonePhotos
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RenameFilesForm());
+            Application.Run(new Form1());
         }
     }
 }

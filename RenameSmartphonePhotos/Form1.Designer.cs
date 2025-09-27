@@ -20,7 +20,7 @@
 
 namespace RenameSmartphonePhotos
 {
-    partial class RenameFilesForm
+    partial class Form1
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -48,7 +48,7 @@ namespace RenameSmartphonePhotos
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RenameFilesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.m_tbxFolder = new System.Windows.Forms.TextBox();
             this.mbnChooseFolder = new System.Windows.Forms.Button();
             this.m_lblFolder = new System.Windows.Forms.Label();
@@ -85,6 +85,10 @@ namespace RenameSmartphonePhotos
             this.m_btnRename.UseVisualStyleBackColor = true;
             this.m_btnRename.Click += new System.EventHandler(this.OnRenameButtonClick);
             // 
+            // m_dlgFolderBrowserDialog
+            // 
+            resources.ApplyResources(this.m_dlgFolderBrowserDialog, "m_dlgFolderBrowserDialog");
+            // 
             // m_lblAbout
             // 
             resources.ApplyResources(this.m_lblAbout, "m_lblAbout");
@@ -99,7 +103,7 @@ namespace RenameSmartphonePhotos
             this.m_lblShowLicence.TabStop = true;
             this.m_lblShowLicence.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lblShowLicence_LinkClicked);
             // 
-            // RenameFilesForm
+            // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +115,7 @@ namespace RenameSmartphonePhotos
             this.Controls.Add(this.m_tbxFolder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "RenameFilesForm";
+            this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.OnHelpRequested);
             this.ResumeLayout(false);
