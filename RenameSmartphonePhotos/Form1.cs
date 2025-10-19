@@ -52,15 +52,28 @@ namespace RenameSmartphonePhotos
         /// File name already in target format, e.g 2001-01-01 124951.jpg
         /// </summary>
         static System.Text.RegularExpressions.Regex s_oRegex2 =
-            new System.Text.RegularExpressions.Regex(@"\d\d\d\d-\d\d-\d\d\D(.*)");
+            new System.Text.RegularExpressions.Regex(@"^\d\d\d\d-\d\d-\d\d[\s_-](.*)");
 
         //===================================================================================================
         /// <summary>
         /// File name with all data concatenadted, e.g. 20010101124951.jpg
         /// </summary>
         System.Text.RegularExpressions.Regex s_oRegex3 =
-            new System.Text.RegularExpressions.Regex(@"^(20\d\d)(\d\d)(\d\d)(\d\d\d\d\d\d)(\s?\(\d+\))?[\.](.*)");
+            new System.Text.RegularExpressions.Regex(@"^(20\d\d)(\d\d)(\d\d)(\d\d\d\d\d\d)(\s?\(\d+\))?[\.]([^.]*)");
 
+        //===================================================================================================
+        /// <summary>
+        /// File name in target format, preceded by a string e.g Coolpix_2001-01-01_12-49-51.jpg
+        /// </summary>
+        static System.Text.RegularExpressions.Regex s_oRegex4 =
+            new System.Text.RegularExpressions.Regex(@"(.*)([\s_-])(20\d\d-\d\d-\d\d)([\s_-])(.*)[\.]([^.]*)");
+
+
+        //===================================================================================================
+        /// <summary>
+        /// File name already in target format, e.g 2001-01-01 124951.jpg
+        /// </summary>
+        static System.Text.RegularExpressions.Regex s_oRegex5 = new System.Text.RegularExpressions.Regex(":");
 
         //===================================================================================================
         /// <summary>
@@ -86,7 +99,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oEventArgs">Event args</param>
         //===================================================================================================
         private void OnChooseFolderClick(
-            object oSender, 
+            object oSender,
             EventArgs oEventArgs
             )
         {
@@ -101,11 +114,12 @@ namespace RenameSmartphonePhotos
         /// Renames a complement file, that belongs to original image file
         /// </summary>
         /// <param name="strOriginalJpeg">Original file path</param>
+        /// <param name="strOriginalJpegNewName">The name of the original jpeg file</param>
         /// <param name="strComplementExt">The extention of complement, e.g. raw file</param>
         //===================================================================================================
         void RenameComplementFile(
-            string strOriginalJpeg, 
-            string strOriginalJpegNewName, 
+            string strOriginalJpeg,
+            string strOriginalJpegNewName,
             string strComplementExt
             )
         {
@@ -118,7 +132,6 @@ namespace RenameSmartphonePhotos
 
                 if (fi.Exists)
                 {
-                    fi.MoveTo(strNewName);
 
                     System.IO.FileInfo fi3 = new System.IO.FileInfo(
                         System.IO.Path.Combine(System.IO.Path.Combine(
@@ -129,9 +142,28 @@ namespace RenameSmartphonePhotos
                         // Files, created by SaveMyFiles and SyncFolders
                         string newName3 = System.IO.Path.Combine(
                             System.IO.Path.Combine(fi.Directory.FullName, "RestoreInfo"),
-                            strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
+                            strNewName.Substring(
+                                strNewName.LastIndexOf(Path.DirectorySeparatorChar) + 1) + ".chk");
                         fi3.MoveTo(newName3);
                     }
+
+                    fi3 = new System.IO.FileInfo(
+                        System.IO.Path.Combine(System.IO.Path.Combine(
+                        fi.DirectoryName, "RestoreInfo"), fi.Name + ".chked"));
+
+                    if (fi3.Exists)
+                    {
+                        // Files, created by SaveMyFiles and SyncFolders
+                        string newName3 = System.IO.Path.Combine(
+                            System.IO.Path.Combine(fi.Directory.FullName, "RestoreInfo"),
+                            strNewName.Substring(
+                                strNewName.LastIndexOf(Path.DirectorySeparatorChar) + 1) + ".chked");
+                        fi3.MoveTo(newName3);
+                    }
+
+                    // move after moving SaveMyFiles/SyncFolders
+                    fi.MoveTo(strNewName);
+
                 }
             }
         }
@@ -144,7 +176,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oEventArgs">Event args</param>
         //===================================================================================================
         private void OnRenameButtonClick(
-            object oSender, 
+            object oSender,
             EventArgs oEventArgs
             )
         {
@@ -152,152 +184,81 @@ namespace RenameSmartphonePhotos
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(m_tbxFolder.Text);
 
-                foreach (string strPattern in new string [] {"*.JPG","*.*" })
-                foreach (System.IO.FileInfo fi in di.GetFiles(strPattern))
+                foreach (string strPattern in new string[] { "*.JPG", "*.*" })
                 {
-                    string strReducedName = fi.Name;
-                    if (strReducedName.StartsWith("DSC "))
-                        strReducedName = strReducedName.Substring(4);
-                    if (strReducedName.StartsWith("DSCF"))
-                        strReducedName = strReducedName.Substring(4);
-                    if (strReducedName.StartsWith("DSC"))
-                        strReducedName = strReducedName.Substring(3);
-                    if (strReducedName.StartsWith("_DSF"))
-                        strReducedName = strReducedName.Substring(4);
-                    if (strReducedName.StartsWith("DSF"))
-                        strReducedName = strReducedName.Substring(3);
-                    if (strReducedName.StartsWith("IMG_"))
-                        strReducedName = strReducedName.Substring(4);
-                    if (strReducedName.StartsWith("_MG_"))
-                        strReducedName = strReducedName.Substring(4);
-                    strReducedName = strReducedName.Trim();
-
-                    try
+                    foreach (System.IO.FileInfo fi in di.GetFiles(strPattern))
                     {
-                        if (fi.Name.ToLower().Contains(".modd") || fi.Name.ToUpper().Contains("THUMBS.DB"))
-                            continue;
+                        string strReducedName = fi.Name;
+                        if (strReducedName.StartsWith("DSC "))
+                            strReducedName = strReducedName.Substring(4);
+                        if (strReducedName.StartsWith("DSCF"))
+                            strReducedName = strReducedName.Substring(4);
+                        if (strReducedName.StartsWith("DSC"))
+                            strReducedName = strReducedName.Substring(3);
+                        if (strReducedName.StartsWith("_DSF"))
+                            strReducedName = strReducedName.Substring(4);
+                        if (strReducedName.StartsWith("DSF"))
+                            strReducedName = strReducedName.Substring(3);
+                        if (strReducedName.StartsWith("IMG_"))
+                            strReducedName = strReducedName.Substring(4);
+                        if (strReducedName.StartsWith("_MG_"))
+                            strReducedName = strReducedName.Substring(4);
+                        strReducedName = strReducedName.Trim();
 
-                        if (s_oRegex1.IsMatch(fi.Name))
+                        try
                         {
-                            // date with prefix matched - move prefix to the time
-                            string strNewName = System.IO.Path.Combine(di.FullName, 
-                                s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
-
-                            System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
-                            string newModd = strNewName + ".modd";
-
-                            System.IO.FileInfo fi3 = new System.IO.FileInfo(
-                                System.IO.Path.Combine(System.IO.Path.Combine(
-                                fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
-
-                            if (!fi2.Exists && fi2.Name.ToLower().Contains(".m2ts"))
+                            if (fi.Name.ToLower().Contains(".modd") || fi.Name.ToUpper().Contains("THUMBS.DB"))
                             {
-                                fi2 = new System.IO.FileInfo(fi.FullName.Replace(".m2ts", ".modd"));
-                                newModd = strNewName.Replace(".m2ts", ".modd");
-                            }
-                            if (!fi2.Exists && fi2.Name.ToLower().Contains(".mpg"))
-                            {
-                                fi2 = new System.IO.FileInfo(fi.FullName.Replace(".mpg", ".modd"));
-                                newModd = strNewName.Replace(".mpg", ".modd");
+                                continue;
                             }
 
-                            fi.MoveTo(strNewName);
-
-                            if (fi2.Exists)
-                                fi2.MoveTo(newModd);
-
-                            if (fi3.Exists)
+                            string? strNewName = null;
+                            if (s_oRegex1.IsMatch(fi.Name))
                             {
-                                // Files, created by SaveMyFiles and SyncFolders
-                                string newName3 = System.IO.Path.Combine(
-                                    System.IO.Path.Combine(di.FullName, "RestoreInfo"),
-                                    strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
-                                fi3.MoveTo(newName3);
+                                // date with prefix matched - move prefix to the time
+                                strNewName = System.IO.Path.Combine(di.FullName,
+                                    s_oRegex1.Replace(fi.Name, "$2-$3-$4 $1$5"));
+
                             }
-                        }
-                        else
-                        {
-                            if (s_oRegex3.IsMatch(fi.Name))
+                            else if (s_oRegex3.IsMatch(fi.Name))
                             {
                                 // date and time, all concatenated together - split the information and make it human readable
-                                string strNewName = System.IO.Path.Combine(
+                                strNewName = System.IO.Path.Combine(
                                     di.FullName, s_oRegex3.Replace(fi.Name, "$1-$2-$3 $4$5.$6"));
 
-                                System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
-                                string newModd = strNewName + ".modd";
-
-                                System.IO.FileInfo fi3 = new System.IO.FileInfo(
-                                    System.IO.Path.Combine(System.IO.Path.Combine(
-                                    fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
-
-                                if (!fi2.Exists && fi2.Name.ToLower().Contains(".m2ts"))
-                                {
-                                    fi2 = new System.IO.FileInfo(fi.FullName.Replace(".m2ts", ".modd"));
-                                    newModd = strNewName.Replace(".m2ts", ".modd");
-                                }
-
-                                if (!fi2.Exists && fi2.Name.ToLower().Contains(".mpg"))
-                                {
-                                    fi2 = new System.IO.FileInfo(fi.FullName.Replace(".mpg", ".modd"));
-                                    newModd = strNewName.Replace(".mpg", ".modd");
-                                }
-
-                                fi.MoveTo(strNewName);
-
-                                if (fi2.Exists)
-                                    fi2.MoveTo(newModd);
-
-                                if (fi3.Exists)
-                                {
-                                    // Files, created by SaveMyFiles and SyncFolders
-                                    string newName3 = System.IO.Path.Combine(
-                                        System.IO.Path.Combine(di.FullName, "RestoreInfo"),
-                                        strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
-
-                                    fi3.MoveTo(newName3);
-                                }
-
                             }
-                            else
+                            else if (!s_oRegex2.IsMatch(fi.Name))
                             {
-                                // maybe it is already correctly formatted?
-                                if (!s_oRegex2.IsMatch(fi.Name))
+                                // maybe it just has some words before the date?
+                                if (s_oRegex4.IsMatch(fi.Name))
                                 {
-                                    // if not - try to get metadata
-                                    System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex(":");
-                                    string strNewName = null;
+                                    // date and time, all concatenated together - split the information and make it human readable
+                                    strNewName = System.IO.Path.Combine(
+                                        di.FullName, s_oRegex4.Replace(fi.Name, "$3 $5 $1.$6"));
+                                }
+                                else
+                                {
+                                    // if not - try to get metadata;
                                     try
                                     {
                                         using (System.IO.FileStream fs = new System.IO.FileStream(
                                             fi.FullName, System.IO.FileMode.Open, System.IO.FileAccess.Read))
                                         using (Image myImage = Image.FromStream(fs, false, false))
                                         {
-                                            try
+                                            System.Drawing.Imaging.PropertyItem? propItem = myImage.GetPropertyItem(36867);
+                                            if (propItem != null && propItem.Value != null)
                                             {
-                                                System.Drawing.Imaging.PropertyItem propItem = myImage.GetPropertyItem(36867);
-                                                if (propItem != null && propItem.Value != null)
+                                                string dateTaken = s_oRegex5.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
+                                                DateTime t;
+                                                if (DateTime.TryParse(dateTaken, out t))
                                                 {
-                                                    string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
-                                                    DateTime t;
-                                                    if (DateTime.TryParse(dateTaken, out t))
-                                                    {
-                                                        strNewName = System.IO.Path.Combine(di.FullName,
-                                                            string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
-                                                            t.Year, t.Month, t.Day,
-                                                            strReducedName));
-                                                    }
-                                                    else
-                                                    {
-                                                        // if we couldn't get any meaningful date default to file modification date
-                                                        strNewName = System.IO.Path.Combine(di.FullName,
-                                                            string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
-                                                            fi.LastWriteTime.Year, fi.LastWriteTime.Month,
-                                                            fi.LastWriteTime.Day, strReducedName));
-                                                    }
+                                                    strNewName = System.IO.Path.Combine(di.FullName,
+                                                        string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
+                                                        t.Year, t.Month, t.Day,
+                                                        strReducedName));
                                                 }
                                                 else
                                                 {
-
                                                     // if we couldn't get any meaningful date default to file modification date
                                                     strNewName = System.IO.Path.Combine(di.FullName,
                                                         string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
@@ -305,8 +266,9 @@ namespace RenameSmartphonePhotos
                                                         fi.LastWriteTime.Day, strReducedName));
                                                 }
                                             }
-                                            catch (ArgumentException)
+                                            else
                                             {
+
                                                 // if we couldn't get any meaningful date default to file modification date
                                                 strNewName = System.IO.Path.Combine(di.FullName,
                                                     string.Format("{0:D4}-{1:D2}-{2:D2} {3}",
@@ -323,69 +285,80 @@ namespace RenameSmartphonePhotos
                                             fi.LastWriteTime.Year, fi.LastWriteTime.Month,
                                             fi.LastWriteTime.Day, strReducedName));
                                     }
-
-
-                                    if (strNewName != null)
-                                    {
-                                        string strOriginalName = fi.FullName;
-
-                                        System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
-                                        string newModd = strNewName + ".modd";
-
-
-                                        // Files, created by SaveMyFiles and SyncFolders
-                                        System.IO.FileInfo fi3 = new System.IO.FileInfo(
-                                            System.IO.Path.Combine(System.IO.Path.Combine(
-                                            fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
-
-                                        if (!fi2.Exists && fi2.Name.ToLower().Contains(".m2ts"))
-                                        {
-                                            fi2 = new System.IO.FileInfo(fi.FullName.Replace(".m2ts", ".modd"));
-                                            newModd = strNewName.Replace(".m2ts", ".modd");
-                                        }
-
-                                        if (!fi2.Exists && fi2.Name.ToLower().Contains(".mpg"))
-                                        {
-                                            fi2 = new System.IO.FileInfo(fi.FullName.Replace(".mpg", ".modd"));
-                                            newModd = strNewName.Replace(".mpg", ".modd");
-                                        }
-
-                                        fi.MoveTo(strNewName);
-
-                                        if (fi2.Exists)
-                                            fi2.MoveTo(newModd);
-
-                                        if (fi3.Exists)
-                                        {
-                                            // Files, created by SaveMyFiles and SyncFolders
-                                            string newName3 = System.IO.Path.Combine(
-                                                System.IO.Path.Combine(di.FullName, "RestoreInfo"),
-                                                strNewName.Substring(strNewName.LastIndexOf('\\') + 1) + ".chk");
-
-                                            fi3.MoveTo(newName3);
-                                        }
-
-                                        RenameComplementFile(strOriginalName, strNewName, ".RAF");
-                                        RenameComplementFile(strOriginalName, strNewName, ".CR2");
-                                        RenameComplementFile(strOriginalName, strNewName, ".MOV");
-                                    }
                                 }
                             }
+
+
+                            if (strNewName != null)
+                            {
+                                string strOriginalName = fi.FullName;
+
+                                System.IO.FileInfo fi2 = new System.IO.FileInfo(fi.FullName + ".modd");
+                                string newModd = strNewName + ".modd";
+
+                                // Identify files, created by SaveMyFiles and SyncFolders
+                                System.IO.FileInfo fi3 = new System.IO.FileInfo(
+                                    System.IO.Path.Combine(System.IO.Path.Combine(
+                                    fi.DirectoryName, "RestoreInfo"), fi.Name + ".chk"));
+
+                                // files, created by camera
+                                if (!fi2.Exists && fi2.Name.ToLower().Contains(".m2ts"))
+                                {
+                                    fi2 = new System.IO.FileInfo(fi.FullName.Replace(".m2ts", ".modd"));
+                                    newModd = strNewName.Replace(".m2ts", ".modd");
+                                }
+
+                                if (!fi2.Exists && fi2.Name.ToLower().Contains(".mpg"))
+                                {
+                                    fi2 = new System.IO.FileInfo(fi.FullName.Replace(".mpg", ".modd"));
+                                    newModd = strNewName.Replace(".mpg", ".modd");
+                                }
+
+                                // then rename
+                                fi.MoveTo(strNewName);
+
+                                if (fi2.Exists)
+                                    fi2.MoveTo(newModd);
+
+                                if (fi3.Exists)
+                                {
+                                    // Files, created by SaveMyFiles and SyncFolders
+                                    string newName3 = System.IO.Path.Combine(
+                                        System.IO.Path.Combine(di.FullName, "RestoreInfo"),
+                                        strNewName.Substring(
+                                            strNewName.LastIndexOf(Path.DirectorySeparatorChar) + 1) + ".chk");
+
+                                    fi3.MoveTo(newName3);
+                                }
+
+                                // rename also complement files
+                                RenameComplementFile(strOriginalName, strNewName, ".RAF");
+                                RenameComplementFile(strOriginalName, strNewName, ".CR2");
+                                RenameComplementFile(strOriginalName, strNewName, ".MOV");
+                            }
                         }
-                    }
-                    catch (Exception oEx)
-                    {
-                        // if something unexpected happens with a file - show to user
-                        System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text, 
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        catch (Exception oEx)
+                        {
+                            // if something unexpected happens with a file - show to user
+                            if (System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
+                                MessageBoxButtons.OKCancel, MessageBoxIcon.Error) ==
+                                DialogResult.Cancel)
+                            {
+                                return;
+                            }
+                        }
                     }
                 }
             }
             catch (Exception oEx)
             {
                 // if something unexpected happens - show to user
-                System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Error) ==
+                                DialogResult.Cancel)
+                {
+                    return;
+                }
             }
         }
 
@@ -397,7 +370,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oArgs">Event args</param>
         //===================================================================================================
         private void m_lblShowLicence_LinkClicked(
-            object oSender, 
+            object oSender,
             LinkLabelLinkClickedEventArgs oArgs
             )
         {
@@ -432,7 +405,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oArgs">Even args</param>
         //===================================================================================================
         private void OnFolderTextChanged(
-            object oSender, 
+            object oSender,
             EventArgs oArgs
             )
         {
@@ -454,7 +427,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oEventArgs">Event args</param>
         //===================================================================================================
         private void OnAboutLinkClicked(
-            object oSender, 
+            object oSender,
             LinkLabelLinkClickedEventArgs oEventArgs
             )
         {
@@ -472,7 +445,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oEventArgs">Event args</param>
         //===================================================================================================
         private void OnHelpRequested(
-            object oSender, HelpEventArgs  oEventArgs)
+            object oSender, HelpEventArgs oEventArgs)
         {
             System.Diagnostics.Process.Start(System.IO.Path.Combine(Application.StartupPath, "Readme.html"));
         }
@@ -484,17 +457,17 @@ namespace RenameSmartphonePhotos
         /// <summary>
         /// Picture box control
         /// </summary>
-        private PictureBox m_ctlPictureBox;
+        private PictureBox? m_ctlPictureBox;
         //===================================================================================================
         /// <summary>
         /// Image
         /// </summary>
-        private Image m_oLoadedImage;
+        private Image? m_oLoadedImage;
         //===================================================================================================
         /// <summary>
         /// A dictionary with positions of other elements
         /// </summary>
-        private Dictionary<Control, int> m_oOriginalPositions;
+        private Dictionary<Control, int> m_oOriginalPositions = new Dictionary<Control, int>();
 
         //===================================================================================================
         /// <summary>
@@ -516,7 +489,7 @@ namespace RenameSmartphonePhotos
 
                 m_ctlPictureBox = new PictureBox();
                 m_ctlPictureBox.Location = this.ClientRectangle.Location;
-                m_ctlPictureBox.Size = new Size(0,0);
+                m_ctlPictureBox.Size = new Size(0, 0);
                 Controls.Add(m_ctlPictureBox);
 
                 LoadAndResizeImage(strImagePath);
@@ -534,7 +507,7 @@ namespace RenameSmartphonePhotos
         /// <param name="oSender">Sender object</param>
         /// <param name="oEventArgs">Event args</param>
         //===================================================================================================
-        private void ResizeImageAlongWithForm(object oSender, EventArgs oEventArgs)
+        private void ResizeImageAlongWithForm(object? oSender, EventArgs oEventArgs)
         {
             ResizeImageAndShiftElements();
         }
@@ -593,7 +566,7 @@ namespace RenameSmartphonePhotos
         //===================================================================================================
         private void ResizeImageAndShiftElements()
         {
-            if (m_oLoadedImage != null)
+            if (m_oLoadedImage != null && m_ctlPictureBox != null)
             {
                 if (WindowState != FormWindowState.Minimized)
                 {
