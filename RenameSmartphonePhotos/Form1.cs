@@ -353,12 +353,8 @@ namespace RenameSmartphonePhotos
             catch (Exception oEx)
             {
                 // if something unexpected happens - show to user
-                if (System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
-                            MessageBoxButtons.OKCancel, MessageBoxIcon.Error) ==
-                                DialogResult.Cancel)
-                {
-                    return;
-                }
+                System.Windows.Forms.MessageBox.Show(this, oEx.Message, this.Text,
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
 
