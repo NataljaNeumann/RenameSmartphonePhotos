@@ -443,7 +443,26 @@ namespace RenameSmartphonePhotos
         private void OnHelpRequested(
             object oSender, HelpEventArgs oEventArgs)
         {
-            System.Diagnostics.Process.Start(System.IO.Path.Combine(Application.StartupPath, "Readme.html"));
+            string strUrl = System.IO.Path.Combine(Application.StartupPath, "Readme.html");
+            try
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    Process.Start(new ProcessStartInfo(strUrl) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", strUrl);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", strUrl);
+                }
+            }
+            catch (Exception oEx)
+            {
+                MessageBox.Show("Could not open browser: " + oEx.Message);
+            }
         }
 
 
