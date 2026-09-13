@@ -189,6 +189,10 @@ jobs:
           & msbuild ${{ env.APP_NAME }}.sln /p:Configuration=Release /p:SignAssembly=true /p:AssemblyOriginatorKeyFile=MyKey.snk
           Remove-Item -Force -Verbose -ErrorAction SilentlyContinue "${{ env.APP_NAME }}/MyKey.snk"
 
+      # SNK creation:
+      # sn -k MyKey.snk
+      # [Convert]::ToBase64String([IO.File]::ReadAllBytes("MyKey.snk")) | Set-Clipboard
+
 
       - name: Download PFX file from secrets
         run: |
