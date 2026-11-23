@@ -174,7 +174,7 @@ jobs:
       #    vs-version: '17.8'
 
       - name: Setup SignTool Path
-        uses: KamaranL/add-signtool-action@v1
+        uses: KamaranL/add-signtool-action@d0027a4cf430f8dfdb15fba53410d0c76b7566f4 # v1
 
       - name: Restore NuGet packages
         run: nuget restore ${{ env.APP_NAME }}.sln
