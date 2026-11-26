@@ -1,5 +1,5 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-  <Package Name="RenameSmartphonePhotos" Language="1033" Version="1.1.7.0" Manufacturer="RenameSmartphonePhotos" UpgradeCode="1BFEE6A6-C4FF-40B7-BB39-383FFD5F79B7" Scope="perMachine">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="RenameSmartphonePhotos" Language="1033" Version="1.1.9.0" Manufacturer="RenameSmartphonePhotos" UpgradeCode="1BFEE6A6-C4FF-40B7-BB39-383FFD5F79B7" Scope="perMachine">
     <MajorUpgrade DowngradeErrorMessage="A newer version of RenameSmartphonePhotos has already been installed." />
     <MediaTemplate EmbedCab="yes" />
     <Directory Id="TARGETDIR" Name="SourceDir">
