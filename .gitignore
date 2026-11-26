@@ -1,8 +1,11 @@
-RenameSmartphonePhotos/obj/**
-RenameSmartphonePhotos/bin/Release/**
-RenameSmartphonePhotos/bin/Debug/**
-RenameSmartphonePhotos/bin/*.zip
+**/obj/**
+**/Release/**
+**/Debug/**
+**/bin/*.zip
 **/.vs/**
 Backup/**
+*.exe
+*.dll
+*.msi
 *.user
 *.suo
