@@ -1,0 +1,277 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="RenameSmartphonePhotos" Language="1033" Version="1.1.7.0" Manufacturer="RenameSmartphonePhotos" UpgradeCode="1BFEE6A6-C4FF-40B7-BB39-383FFD5F79B7" Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of RenameSmartphonePhotos has already been installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="PublisherFolder" Name="RenameSmartphonePhotos">
+          <Directory Id="INSTALLFOLDER" Name="RenameSmartphonePhotos" />
+        </Directory>
+      </Directory>
+    </Directory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="WindowsMenuFolder" Name="RenameSmartphonePhotos" />
+    </StandardDirectory>
+    <StandardDirectory Id="DesktopFolder" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.RenameSmartphonePhotos.TargetDir)license.rtf" />
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="_" Guid="CD79EE78-FC36-4BEA-8F5F-2BDAEC90F398">
+        <File Id="license_rtf" Source="$(var.RenameSmartphonePhotos.TargetDir)license.rtf" />
+        <File Id="license_txt" Source="$(var.RenameSmartphonePhotos.TargetDir)license.txt" />
+        <File Id="Readme_html" Source="$(var.RenameSmartphonePhotos.TargetDir)Readme.html" />
+        <File Id="Readme_txt" Source="$(var.RenameSmartphonePhotos.TargetDir)Readme.txt" />
+        <File Id="RenameSmartphonePhotos_deps_json" Source="$(var.RenameSmartphonePhotos.TargetDir)RenameSmartphonePhotos.deps.json" />
+        <File Id="RenameSmartphonePhotos_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)RenameSmartphonePhotos.dll" />
+        <File Id="RenameSmartphonePhotos_exe" Source="$(var.RenameSmartphonePhotos.TargetDir)RenameSmartphonePhotos.exe" KeyPath="yes" />
+        <File Id="RenameSmartphonePhotos_runtimeconfig_json" Source="$(var.RenameSmartphonePhotos.TargetDir)RenameSmartphonePhotos.runtimeconfig.json" />
+        <File Id="RenameSmartphonePhotosHeader_dat" Source="$(var.RenameSmartphonePhotos.TargetDir)RenameSmartphonePhotosHeader.dat" />
+        <File Id="source_code_tar_zip" Source="$(var.RenameSmartphonePhotos.TargetDir)source_code.tar.zip" />
+      </Component>
+      <Component Id="af" Guid="106F7F4D-A840-4CDF-A37C-DFE4EF1C9239" Subdirectory="af">
+        <File Id="af_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)af\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ar" Guid="3801B4ED-601C-49D3-9ECE-B425A4F548E4" Subdirectory="ar">
+        <File Id="ar_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ar\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="az" Guid="BD3FF357-09FA-48BB-944B-474087817190" Subdirectory="az">
+        <File Id="az_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)az\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="be" Guid="E9344233-AB97-4127-B1C8-C3317D0251F8" Subdirectory="be">
+        <File Id="be_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)be\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="beBY" Guid="73F2C656-E4E9-44C0-A495-D39C511038FC" Subdirectory="be-BY">
+        <File Id="beBY_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)be-BY\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="bg" Guid="01B18D51-9E2B-4A30-8556-C11F4A07E88A" Subdirectory="bg">
+        <File Id="bg_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)bg\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="bsLatnBA" Guid="B1CE1FE2-C0B4-4EBD-AA24-5E9E771B14F5" Subdirectory="bs-Latn-BA">
+        <File Id="bsLatnBA_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)bs-Latn-BA\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ca" Guid="55A3C91D-F271-452D-83F4-018D3175291E" Subdirectory="ca">
+        <File Id="ca_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ca\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="cs" Guid="7F76B91E-9B85-46C7-AE39-9182F45A3A9F" Subdirectory="cs">
+        <File Id="cs_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)cs\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="da" Guid="D38E8918-8C14-4264-B4D4-9001DFBD540E" Subdirectory="da">
+        <File Id="da_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)da\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="de" Guid="13E74D80-0CCE-4223-8102-EBBF06B2A27F" Subdirectory="de">
+        <File Id="de_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)de\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="el" Guid="938B6F31-4D9D-4D2A-BAF0-2F935B6A0796" Subdirectory="el">
+        <File Id="el_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)el\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="es" Guid="4A09AF0E-B5C2-4CAE-B997-F31039EC1175" Subdirectory="es">
+        <File Id="es_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)es\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="et" Guid="4116E5E6-97A9-45F4-8CEF-8C3BBCD371CD" Subdirectory="et">
+        <File Id="et_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)et\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="fa" Guid="35EC376C-3E4F-470E-BA80-AEA3C820CA5C" Subdirectory="fa">
+        <File Id="fa_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)fa\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="fi" Guid="2E5F9BF2-B2B2-486B-8D72-957D0821D3B1" Subdirectory="fi">
+        <File Id="fi_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)fi\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="fr" Guid="C8079954-AE0E-4F31-BAF3-6D954CDD91E7" Subdirectory="fr">
+        <File Id="fr_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)fr\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="he" Guid="9CF274ED-22B2-4ED5-95D0-BE4B742839EC" Subdirectory="he">
+        <File Id="he_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)he\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="hi" Guid="FE5985A3-40C3-4011-B500-A10CD6860974" Subdirectory="hi">
+        <File Id="hi_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)hi\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="hu" Guid="8B14FE1A-CC32-42CD-AB36-19B7B6AE5F49" Subdirectory="hu">
+        <File Id="hu_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)hu\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="hy" Guid="EFF3D071-C375-42C8-94C0-37F7DB9A9E78" Subdirectory="hy">
+        <File Id="hy_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)hy\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="id" Guid="98E07B0F-4E3E-4E52-AC7B-3A58B3851458" Subdirectory="id">
+        <File Id="id_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)id\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="idID" Guid="12568F41-5A5C-4845-87C0-ECEF0DD1A512" Subdirectory="id-ID">
+        <File Id="idID_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)id-ID\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="is" Guid="D7DC05D3-491A-45F4-A433-F925C2958C30" Subdirectory="is">
+        <File Id="is_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)is\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="it" Guid="AEF2F013-0D68-4630-AB1B-03820BEB1E6F" Subdirectory="it">
+        <File Id="it_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)it\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ja" Guid="B02B1120-1E02-4A67-B294-DD4FA67A30AB" Subdirectory="ja">
+        <File Id="ja_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ja\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ka" Guid="3FF6871D-300A-47E2-9BDD-56006F01B3FD" Subdirectory="ka">
+        <File Id="ka_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ka\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="kk" Guid="B7CBCA6C-F656-4A97-B429-B1883C7120C8" Subdirectory="kk">
+        <File Id="kk_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)kk\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="kmKH" Guid="1AB3B3E7-2658-4A39-8731-ED0253777029" Subdirectory="km-KH">
+        <File Id="kmKH_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)km-KH\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ko" Guid="DA4BA057-68AC-4D68-8542-7C99CED47246" Subdirectory="ko">
+        <File Id="ko_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ko\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="kyKG" Guid="DDC7D09F-1FBC-4203-9089-9C01418E3A60" Subdirectory="ky-KG">
+        <File Id="kyKG_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ky-KG\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="lt" Guid="C7545772-0482-49DC-9434-CA84680FD22E" Subdirectory="lt">
+        <File Id="lt_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)lt\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="lv" Guid="3639E07F-5AD9-45EF-AA96-750951F3C9B7" Subdirectory="lv">
+        <File Id="lv_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)lv\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="mk" Guid="4995D834-AFDE-450F-AA0C-67F87D2FD3EE" Subdirectory="mk">
+        <File Id="mk_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)mk\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="mnMN" Guid="44B3BF81-17E7-46C8-8204-86DE3DBF5EE0" Subdirectory="mn-MN">
+        <File Id="mnMN_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)mn-MN\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ms" Guid="162E1E9C-8789-4CF5-8F00-482CED43A4B8" Subdirectory="ms">
+        <File Id="ms_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ms\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="nl" Guid="4BC55704-D6BE-4F4A-BFEA-2F16D944FC87" Subdirectory="nl">
+        <File Id="nl_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)nl\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="no" Guid="B8A671CF-885B-4650-98A3-F4E708E12B6F" Subdirectory="no">
+        <File Id="no_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)no\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="paArabPK" Guid="0A02818F-489E-4AA9-95C8-7B0D200FC890" Subdirectory="pa-Arab-PK">
+        <File Id="paArabPK_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)pa-Arab-PK\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="paIN" Guid="724FC3F0-7FFC-41EF-A89B-E466904AC99A" Subdirectory="pa-IN">
+        <File Id="paIN_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)pa-IN\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="pl" Guid="823BDFB3-B57B-450A-9D58-BBBAAC1FA3E5" Subdirectory="pl">
+        <File Id="pl_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)pl\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="psAF" Guid="D4A7B39B-3F20-4A99-B97E-4EDB6F44E737" Subdirectory="ps-AF">
+        <File Id="psAF_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ps-AF\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="pt" Guid="AF6FA893-5015-4DB1-9133-A2B75D324EDA" Subdirectory="pt">
+        <File Id="pt_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)pt\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ro" Guid="6E46346A-8748-48CF-98B8-C5563ED53F30" Subdirectory="ro">
+        <File Id="ro_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ro\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="ru" Guid="2689AB23-14CA-47EC-B2B0-E18CBEECEC63" Subdirectory="ru">
+        <File Id="ru_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)ru\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="sa" Guid="1503127A-C293-40C8-ABAC-2A93C6BEBA80" Subdirectory="sa">
+        <File Id="sa_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)sa\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="sk" Guid="1643EB4A-B5E4-48FC-BAD3-A36AF3FDBA1A" Subdirectory="sk">
+        <File Id="sk_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)sk\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="sl" Guid="F5142FF3-51D4-407D-BE57-96B222A3D19C" Subdirectory="sl">
+        <File Id="sl_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)sl\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="sr" Guid="D5921BAF-DC5D-4456-9547-70A9DB587A95" Subdirectory="sr">
+        <File Id="sr_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)sr\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="sv" Guid="DB41292C-B220-44E4-AD52-583D994750DA" Subdirectory="sv">
+        <File Id="sv_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)sv\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="tgCyrlTJ" Guid="00ABD5CE-1E30-4BAF-9560-96275579701D" Subdirectory="tg-Cyrl-TJ">
+        <File Id="tgCyrlTJ_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)tg-Cyrl-TJ\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="th" Guid="88E718F2-9C83-4A43-99BB-2331C40A6F9E" Subdirectory="th">
+        <File Id="th_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)th\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="tr" Guid="0B24D748-E234-4780-82FD-FE435BD102D9" Subdirectory="tr">
+        <File Id="tr_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)tr\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="uk" Guid="0C5FEB1F-3B82-485F-AA14-26C51A5B6127" Subdirectory="uk">
+        <File Id="uk_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)uk\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="uz" Guid="D84573E3-77E8-410F-B189-77DA9B797669" Subdirectory="uz">
+        <File Id="uz_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)uz\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="vi" Guid="923BE313-4ACD-4531-B49B-C70ABA0380DC" Subdirectory="vi">
+        <File Id="vi_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)vi\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="zhCHS" Guid="F6F8F430-9CE6-4AEF-B164-F1FE411C6365" Subdirectory="zh-CHS">
+        <File Id="zhCHS_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)zh-CHS\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+      <Component Id="zhCHT" Guid="0EE099A1-6B65-4C8E-8BE0-C51A7ACC4367" Subdirectory="zh-CHT">
+        <File Id="zhCHT_resources_dll" Source="$(var.RenameSmartphonePhotos.TargetDir)zh-CHT\RenameSmartphonePhotos.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="WindowsMenuFolder">
+      <Component Id="WindowsMenuShortcuts" Guid="FB1EFF4D-5D73-45C0-9DE9-62BC34816FD3">
+        <RemoveFolder Id="RemoveWindowsMenuFolder" Directory="WindowsMenuFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\RenameSmartphonePhotos\RenameSmartphonePhotos" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+        <Shortcut Id="RenameSmartphonePhotos_exe_pfx" Directory="WindowsMenuFolder" Name="Rename Smartphone Photos" Target="[INSTALLFOLDER]RenameSmartphonePhotos.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="RenameSmartphonePhotos_exe_2_pfx" Directory="DesktopFolder" Name="Rename Smartphone Photos" Target="[INSTALLFOLDER]RenameSmartphonePhotos.exe" WorkingDirectory="INSTALLFOLDER" />
+      </Component>
+    </DirectoryRef>
+    <Feature Id="RenameSmartphonePhotos" Title="RenameSmartphonePhotos" Level="1">
+      <ComponentRef Id="WindowsMenuShortcuts" />
+      <ComponentRef Id="_" />
+      <ComponentRef Id="af" />
+      <ComponentRef Id="ar" />
+      <ComponentRef Id="az" />
+      <ComponentRef Id="be" />
+      <ComponentRef Id="beBY" />
+      <ComponentRef Id="bg" />
+      <ComponentRef Id="bsLatnBA" />
+      <ComponentRef Id="ca" />
+      <ComponentRef Id="cs" />
+      <ComponentRef Id="da" />
+      <ComponentRef Id="de" />
+      <ComponentRef Id="el" />
+      <ComponentRef Id="es" />
+      <ComponentRef Id="et" />
+      <ComponentRef Id="fa" />
+      <ComponentRef Id="fi" />
+      <ComponentRef Id="fr" />
+      <ComponentRef Id="he" />
+      <ComponentRef Id="hi" />
+      <ComponentRef Id="hu" />
+      <ComponentRef Id="hy" />
+      <ComponentRef Id="id" />
+      <ComponentRef Id="idID" />
+      <ComponentRef Id="is" />
+      <ComponentRef Id="it" />
+      <ComponentRef Id="ja" />
+      <ComponentRef Id="ka" />
+      <ComponentRef Id="kk" />
+      <ComponentRef Id="kmKH" />
+      <ComponentRef Id="ko" />
+      <ComponentRef Id="kyKG" />
+      <ComponentRef Id="lt" />
+      <ComponentRef Id="lv" />
+      <ComponentRef Id="mk" />
+      <ComponentRef Id="mnMN" />
+      <ComponentRef Id="ms" />
+      <ComponentRef Id="nl" />
+      <ComponentRef Id="no" />
+      <ComponentRef Id="paArabPK" />
+      <ComponentRef Id="paIN" />
+      <ComponentRef Id="pl" />
+      <ComponentRef Id="psAF" />
+      <ComponentRef Id="pt" />
+      <ComponentRef Id="ro" />
+      <ComponentRef Id="ru" />
+      <ComponentRef Id="sa" />
+      <ComponentRef Id="sk" />
+      <ComponentRef Id="sl" />
+      <ComponentRef Id="sr" />
+      <ComponentRef Id="sv" />
+      <ComponentRef Id="tgCyrlTJ" />
+      <ComponentRef Id="th" />
+      <ComponentRef Id="tr" />
+      <ComponentRef Id="uk" />
+      <ComponentRef Id="uz" />
+      <ComponentRef Id="vi" />
+      <ComponentRef Id="zhCHS" />
+      <ComponentRef Id="zhCHT" />
+    </Feature>
+  </Package>
+</Wix>
