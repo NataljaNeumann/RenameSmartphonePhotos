@@ -19,15 +19,8 @@
 */
 
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+
 using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -123,10 +116,12 @@ namespace RenameSmartphonePhotos
             string strComplementExt
             )
         {
-            if (strOriginalJpeg.EndsWith(".JPG"))
+            if (strOriginalJpeg.EndsWith(".JPG", StringComparison.InvariantCultureIgnoreCase))
             {
-                string strComplementPath = strOriginalJpeg.Replace(".JPG", strComplementExt);
-                string strNewName = strOriginalJpegNewName.Replace(".JPG", strComplementExt);
+                string strComplementPath = strOriginalJpeg.Replace(".JPG", strComplementExt,
+                    StringComparison.InvariantCultureIgnoreCase);
+                string strNewName = strOriginalJpegNewName.Replace(".JPG", strComplementExt,
+                    StringComparison.InvariantCultureIgnoreCase);
 
                 FileInfo fi = new FileInfo(strComplementPath);
 
